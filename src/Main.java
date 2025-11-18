@@ -4,10 +4,14 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
+        Actions yes= new Actions();
+        String inputAction="";
         System.out.println("in");
-  String inputAction=scan.next();
-     new Actions(inputAction);
+        while (!inputAction.equals("Exit")) {
+             inputAction = scan.next();
+          yes.movement(inputAction);
+        }
         scan.close();
 
     }
-}
+    }

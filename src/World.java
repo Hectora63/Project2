@@ -1,6 +1,13 @@
 public class World {
 
-    static int[] currentLocation;
+    public World()
+    {
 
+    }
+
+    void starterRoom()
+    {
+
+    }
 
     }
