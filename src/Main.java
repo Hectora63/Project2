@@ -4,19 +4,18 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
+int score=0;
 
         Actions yes= new Actions();
 
         String inputAction="";
 
-        World test=new World();
-
         System.out.println("in");
 
-        while (!inputAction.equals("Exit")) {
+        while (!(score ==2)) {
 
-             inputAction = scan.next();
-         test.starterRoom(yes.xMovement(inputAction),yes.yMovement(inputAction));
+         yes.xMovement(inputAction);
+         yes.yMovement(inputAction);
         }
 
         scan.close();
