@@ -10,7 +10,6 @@ public Actions (){
 void  Forward()
 {
     yPos += 1;
-
 }
 void  Back()
     {
@@ -24,7 +23,7 @@ void Right()
 {
     xPos+=1;
 }
- void movement(String input)
+ int yMovement(String input)
     {
         if(input.equals("Forward")){
             Forward();
@@ -32,6 +31,12 @@ void Right()
         if(input.equals("Back")){
             Back();
         }
+        System.out.println(yPos);
+        return yPos;
+
+    }
+    int xMovement(String input)
+    {
         if(input.equals("Left")){
             Left();
         }
@@ -39,7 +44,6 @@ void Right()
             Right();
         }
         System.out.println(xPos);
-        System.out.println(yPos);
-
+        return xPos;
     }
 }
