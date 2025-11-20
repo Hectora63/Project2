@@ -2,11 +2,12 @@ public class Actions {
     private int xPos=0;
     private int yPos=0;
     private int xBound=0;
-    private int yBound=0;
+    private int yBound=2;
 
 public Actions (){
-    xBound= (int)((Math.random()*2)+1);
-    yBound= (int)((Math.random()*2)+1);
+
+    xBound= (int)((Math.random()*5)+2);
+   // yBound= (int)((Math.random()*2)+1);
     System.out.println(xBound);
     System.out.println(yBound);
 
@@ -28,25 +29,29 @@ void Right()
 {
     xPos+=1;
 }
- int yMovement(String input)
-    {
-        if(yPos==yBound){
-            return yPos;
-        }
-        else if(input.equals("Forward")){
-            Forward();
-        }
-        else if(input.equals("Back")){
-            Back();
-        }
-        System.out.println(yPos);
-        return yPos;
 
-    }
-    int xMovement(String input)
+ void yMovement(String input) {
+     int temp = yPos;
+     if (input.equals("Forward")) {
+         Forward();
+     }
+     else if (input.equals("Back"))
+     {
+         Back();
+     }
+     if ((Math.abs(temp) >= yBound) || (Math.abs(xPos) >= yBound))
+     {
+
+             yPos = temp;
+         }
+         System.out.println(yPos);
+     }
+
+    void xMovement(String input)
     {
-        if(xPos>=xBound){
-            return xPos;
+        if(Math.abs(xPos)>=xBound){
+            System.out.println(xPos);
+            return;
         }
         else if(input.equals("Left")){
             Left();
@@ -54,23 +59,9 @@ void Right()
         else if(input.equals("Right")){
             Right();
         }
-        System.out.println(yPos);
-        return xPos;
+        System.out.println(xPos);
     }
-    void starterRoom(int x, int y)
-    {
 
-        if(Math.abs(x)==xBound)
-        {
-            System.out.println("Wall here");
-            xPos=xBound;
-        }
-        if(Math.abs(y)==yBound)
-        {
-            System.out.println("Wall here");
-            yPos=yBound;
-        }
-    }
 
 
 }

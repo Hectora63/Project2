@@ -12,10 +12,11 @@ int score=0;
 
         System.out.println("in");
 
-        while (!(score ==2)) {
-
+        while (!inputAction.equals("exit")) {
+            inputAction = scan.next();
          yes.xMovement(inputAction);
          yes.yMovement(inputAction);
+
         }
 
         scan.close();
