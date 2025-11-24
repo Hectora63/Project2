@@ -5,26 +5,27 @@ public class Main {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
 
-        Actions yes= new Actions();
+        String mode = scan.next();
 
-        Item apple= new Item(yes.xBound,yes.yBound);
+        Actions yes = new Actions(mode);
 
-        String inputAction="";
+        Item apple = new Item(yes.xBound, yes.yBound);
 
-        int check=0;
+        String inputAction = "";
+
+        int check = 0;
 
         System.out.println("in");
 
         apple.show();
 
-        while (check==0) {
+        while (check == 0) {
             yes.show();
             inputAction = scan.next();
             yes.xMovement(inputAction);
             yes.yMovement(inputAction);
 
-          check=yes.check(inputAction, apple.xPos, apple.yPos);
-
+            check = yes.check(inputAction, apple.xPos, apple.yPos);
 
 
         }
@@ -32,4 +33,4 @@ public class Main {
         scan.close();
 
     }
-    }
+}
