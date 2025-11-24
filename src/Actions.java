@@ -1,8 +1,8 @@
 public class Actions {
     private int xPos=0;
     private int yPos=0;
-    private int xBound=0;
-    private int yBound=0;
+    public int xBound=0;
+    public int yBound=0;
 
 public Actions (){
 
@@ -44,6 +44,7 @@ void Right()
 
              yPos = temp;
          }
+
      }
 
     void xMovement(String input) {
@@ -65,5 +66,16 @@ void Right()
         System.out.println("X:" + xPos + "," + " Y:" + yPos);
     }
 
+    int check(String input , int xInput,int yInput)
+    {
+        if(input.equals("Check")||xInput==xPos||yInput==yPos)
+        {
+            return 1;
+        }
+        else {
+            return 0;
+        }
+
+    }
 
 }

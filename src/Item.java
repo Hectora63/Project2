@@ -1,26 +1,23 @@
 public class Item {
-private int xPos;
-private int yPos;
+public int xPos;
+public int yPos;
 
-public Item()
+public Item( int x, int y)
 {
     if((int)(Math.random()+0.5)==1) {
-        xPos= (int)((Math.random()*4)+2);
+        xPos= (int)((Math.random()*(x-1))+2);
     }
     else{
-        xPos= (int)((Math.random()*-4)+2);
+        xPos= (int)((Math.random()*-(x-1))+2);
     }
 
     if((int)(Math.random()+0.5)==1) {
-        yPos= (int)((Math.random()*4)+2);
+        yPos= (int)((Math.random()*(y-1))+2);
     }
     else{
-        yPos= (int)((Math.random()*-4)+2);
+        yPos= (int)((Math.random()*-(y-1))+2);
     }
 }
-
-
-
 
  void show()
 {
