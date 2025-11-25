@@ -19,9 +19,9 @@ public class Actions {
                 yBound = 8;
                 break;
         }
-        System.out.println((xBound-1) + "," + (yBound-1));
+        System.out.println((xBound - 1) + "," + (yBound - 1));
 
-        // xBound = (int) ((Math.random() * 5) + 3);
+        //xBound = (int) ((Math.random() * 5) + 3);
         //yBound = (int) ((Math.random() * 5) + 3);
         //  System.out.println(xBound - 1);
         // System.out.println(yBound - 1);
@@ -44,29 +44,35 @@ public class Actions {
         xPos += 1;
     }
 
-    void yMovement(String input) {
-        int temp = yPos;
-        if (input.equals("Forward")) {
-            Forward();
-        } else if (input.equals("Back")) {
-            Back();
-        }
-        if ((Math.abs(temp) >= yBound) || (Math.abs(yPos) >= yBound)) {
-            yPos = temp;
+    void Movement(String input) {
+        int xTemp = xPos;
+        int yTemp = yPos;
+        switch (input) {
+            case "Left":
+                Left();
+                break;
+
+            case "Right":
+                Right();
+                break;
+
+            case "Forward":
+                Forward();
+                break;
+
+            case "Back":
+                Back();
+                break;
         }
 
-    }
-
-    void xMovement(String input) {
-        int temp = xPos;
-        if (input.equals("Left")) {
-            Left();
-        } else if (input.equals("Right")) {
-            Right();
+        if ((Math.abs(yPos) >= yBound)) {
+            yPos = xTemp;
+            System.out.println("Wall");
         }
-        if ((Math.abs(temp) >= xBound) || (Math.abs(xPos) >= xBound)) {
 
-            xPos = temp;
+        if ((Math.abs(xPos) >= xBound)) {
+            xPos = yTemp;
+            System.out.println("Wall");
         }
 
     }
@@ -76,12 +82,23 @@ public class Actions {
     }
 
     int check(String input, int xInput, int yInput) {
-        if (input.equals("Check") || xInput == xPos || yInput == yPos) {
-            return 1;
-        } else {
-            return 0;
+        if(input.equals("Check")) {
+            if (xInput == xPos && yInput == yPos) {
+                System.out.println("Congrats apple found.");
+                return 1;
+            }
+            System.out.println("Nothing here.");
         }
+        return 0;
+    }
 
+    void search(String input,int xInput, int yInput)
+    {
+
+        if(input.equals("Search"))
+        {
+
+        }
     }
 
 }

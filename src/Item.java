@@ -4,20 +4,20 @@ public class Item {
 
     public Item(int x, int y) {
         if ((int) (Math.random() + 0.5) == 1) {
-            xPos = (int) ((Math.random() * (x - 1)) + 2);
+            xPos = (int) ((Math.random() * (x - 1)) +1);
         } else {
-            xPos = (int) ((Math.random() * -(x - 1)) + 2);
+            xPos = -((int) ((Math.random() * (x - 1)) + 1));
         }
 
         if ((int) (Math.random() + 0.5) == 1) {
-            yPos = (int) ((Math.random() * (y - 1)) + 2);
+            yPos = (int) ((Math.random() * (y - 1)) + 1);
         } else {
-            yPos = (int) ((Math.random() * -(y - 1)) + 2);
+            yPos = -((int) ((Math.random() * (y - 1)) + 1));
         }
     }
 
     void show() {
-        System.out.println(xPos + " " + yPos);
+        System.out.println(xPos + ", " + yPos);
     }
 
 
