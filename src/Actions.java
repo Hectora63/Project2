@@ -5,6 +5,7 @@ public class Actions {
     public int yBound = 0;
 
     public Actions(String mode) {
+
         switch (mode) {
             case "Easy":
                 xBound = 3;
@@ -45,8 +46,7 @@ public class Actions {
     }
 
     void Movement(String input) {
-        int xTemp = xPos;
-        int yTemp = yPos;
+
         switch (input) {
             case "Left":
                 Left();
@@ -66,12 +66,12 @@ public class Actions {
         }
 
         if ((Math.abs(yPos) >= yBound)) {
-            yPos = xTemp;
+            yPos -=1;
             System.out.println("Wall");
         }
 
         if ((Math.abs(xPos) >= xBound)) {
-            xPos = yTemp;
+            xPos -=1;
             System.out.println("Wall");
         }
 
@@ -95,19 +95,22 @@ public class Actions {
     void search(String input, int xInput, int yInput) {
 
         if (input.equals("Search")) {
-            double distance = Math.sqrt(((xPos - xInput) ^ 2) + ((yPos - yInput) ^ 2));
-            System.out.println(distance);
-            if(distance<=1){
-                System.out.println("Hot");
-                return;
-            }
-           else if(distance<=2){
-                System.out.println("Warm");
-                return;
+            if(xInput==xPos&&yInput==yPos){
+                System.out.println("Fire");
             }
             else{
+            double distance = Math.sqrt(((xInput - xPos) ^ 2) + ((yInput - yPos) ^ 2));
+            System.out.println(distance);
+            if (distance <= 1.5) {
+                System.out.println("Hot");
+
+            } else if (distance <= 2.5) {
+                System.out.println("Warm");
+
+            } else {
                 System.out.println("Cold");
-                return;
+
+            }
             }
         }
 

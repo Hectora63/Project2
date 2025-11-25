@@ -21,7 +21,7 @@ public class Main {
             yes.show();
             inputAction = scan.next();
             yes.Movement(inputAction);
-            yes.search(inputAction,apple.xPos,apple.yPos);
+            yes.search(inputAction, apple.xPos, apple.yPos);
             check = yes.check(inputAction, apple.xPos, apple.yPos);
 
         }

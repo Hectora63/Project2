@@ -4,7 +4,7 @@ public class Item {
 
     public Item(int x, int y) {
         if ((int) (Math.random() + 0.5) == 1) {
-            xPos = (int) ((Math.random() * (x - 1)) +1);
+            xPos = (int) ((Math.random() * (x - 1)) + 1);
         } else {
             xPos = -((int) ((Math.random() * (x - 1)) + 1));
         }
@@ -17,7 +17,7 @@ public class Item {
     }
 
     void show() {
-        System.out.println(xPos + ", " + yPos);
+        System.out.println("apple position : (" + xPos + ", " + yPos + ")");
     }
 
 
