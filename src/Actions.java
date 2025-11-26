@@ -1,8 +1,10 @@
+
 public class Actions {
     private int xPos = 0;
     private int yPos = 0;
     public int xBound = 0;
     public int yBound = 0;
+    private int attemptsLeft;
 
     public Actions(String mode) {
 
@@ -10,14 +12,17 @@ public class Actions {
             case "Easy":
                 xBound = 3;
                 yBound = 3;
+                attemptsLeft = 4;
                 break;
             case "Medium":
                 xBound = 5;
                 yBound = 5;
+                attemptsLeft = 3;
                 break;
             case "Hard":
                 xBound = 8;
                 yBound = 8;
+                attemptsLeft = 2;
                 break;
         }
         System.out.println((xBound - 1) + "," + (yBound - 1));
@@ -65,13 +70,14 @@ public class Actions {
                 break;
         }
 
+
         if ((Math.abs(yPos) >= yBound)) {
-            yPos -=1;
+            yPos -= 1;
             System.out.println("Wall");
         }
 
         if ((Math.abs(xPos) >= xBound)) {
-            xPos -=1;
+            xPos -= 1;
             System.out.println("Wall");
         }
 
@@ -83,11 +89,16 @@ public class Actions {
 
     int check(String input, int xInput, int yInput) {
         if (input.equals("Check")) {
-            if (xInput == xPos && yInput == yPos) {
-                System.out.println("Congrats apple found.");
-                return 1;
+            while (attemptsLeft > 0) {
+                if (xInput == xPos && yInput == yPos) {
+                    System.out.println("Congrats apple found.");
+                    return 1;
+                }
+                System.out.println("Nothing here.");
+                attemptsLeft -= 1;
+                System.out.println("Attempts left: " + attemptsLeft);
+                return 0;
             }
-            System.out.println("Nothing here.");
         }
         return 0;
     }
@@ -95,22 +106,21 @@ public class Actions {
     void search(String input, int xInput, int yInput) {
 
         if (input.equals("Search")) {
-            if(xInput==xPos&&yInput==yPos){
+            if (xInput == xPos && yInput == yPos) {
                 System.out.println("Fire");
-            }
-            else{
-            double distance = Math.sqrt(((xInput - xPos) ^ 2) + ((yInput - yPos) ^ 2));
-            System.out.println(distance);
-            if (distance <= 1.5) {
-                System.out.println("Hot");
-
-            } else if (distance <= 2.5) {
-                System.out.println("Warm");
-
             } else {
-                System.out.println("Cold");
+                double distance = Math.sqrt(Math.pow((xInput - xPos), 2) + Math.pow((yInput - yPos), 2));
+                System.out.println(distance);
+                if (distance <= 1) {
+                    System.out.println("Hot");
 
-            }
+                } else if (distance <= 2) {
+                    System.out.println("Warm");
+
+                } else {
+                    System.out.println("Cold");
+
+                }
             }
         }
 
